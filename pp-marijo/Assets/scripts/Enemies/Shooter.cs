@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float _runSpeed;
     
     private SpriteRenderer sr;
     private Rigidbody2D rb;
@@ -78,7 +78,7 @@ public class Shooter : MonoBehaviour
         }
 
         //move
-        transform.Translate(Vector2.right * Horiz * speed * Time.fixedDeltaTime);
+        transform.Translate(Vector2.right * Horiz * _runSpeed * Time.fixedDeltaTime);
 
         //jump
         if (transform.position.x >= JumpRight && transform.position.x <= JumpRight + 0.01 && Horiz == 1

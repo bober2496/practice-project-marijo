@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8901301838074935963}
   - component: {fileID: 6281969170040390439}
+  - component: {fileID: 187771851}
   - component: {fileID: 3147228169212791167}
   - component: {fileID: 8901301838074935962}
   - component: {fileID: 8901301838074935966}
@@ -83,6 +84,20 @@ MonoBehaviour:
   _jumpForce: 3
   _speed: 70
   _crouchSize: 0.5
+--- !u!114 &187771851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901301838074935941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d2a93db63d2634081466e7dfb9451c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 638631111747509069, guid: 365442fc88fa4f94c8f1d2ae2b0577d0, type: 3}
+  bulletSpeed: 180
 --- !u!114 &3147228169212791167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +146,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 660672589
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2526832996998184344, guid: cd947491a13509945aa1b644f9db3ef2,
     type: 3}

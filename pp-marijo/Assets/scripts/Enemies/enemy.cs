@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
     private Rigidbody2D rb;
     int Movehoriz = 1;
     [SerializeField] private float speed;
+    [SerializeField] private float turnRightPosition, turnLeftPosition;
     private SpriteRenderer sr;
 
     // Start is called before the first frame update
@@ -23,12 +19,12 @@ public class enemy : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector2.right * Movehoriz * speed * Time.fixedDeltaTime);
-        if (transform.position.x <= -3.1)
+        if (transform.position.x <= turnRightPosition)
         {
             Movehoriz = 1;
             sr.flipX = false;
         }
-        if (transform.position.x >= -2.5)
+        if (transform.position.x >= turnLeftPosition)
         {
             Movehoriz = -1;
             sr.flipX = true;

@@ -239,6 +239,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4207285455045273604, guid: c6fa8f4e01da6ae4e8044dd76f07cd95,
+        type: 3}
+      propertyPath: m_Name
+      value: Score_inscription
+      objectReference: {fileID: 0}
     - target: {fileID: 5692725888913471724, guid: c6fa8f4e01da6ae4e8044dd76f07cd95,
         type: 3}
       propertyPath: m_Camera

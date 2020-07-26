@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,12 +11,16 @@ public class Score : MonoBehaviour
     private int score;
     [SerializeField] private Scene[] allScenes;
 
-    
+    private int numberOfScenes;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        numberOfScenes = SceneManager.sceneCount;
+    }
+
     void Start()
     {
-           
+    
     }
 
     // Update is called once per frame

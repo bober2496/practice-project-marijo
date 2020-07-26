@@ -7,13 +7,13 @@ using UnityEngine.UIElements;
 
 public class enemy : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    int Movehoriz=1;
-    public float speed;
+    private Rigidbody2D rb;
+    int Movehoriz = 1;
+    [SerializeField] private float speed;
     private SpriteRenderer sr;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();      

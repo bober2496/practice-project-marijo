@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
 
     bool Grounded;
     bool jumping;
-    private int Horiz;
+    private int Horiz = 1;
     float timer;
 
     void ShootProjectile()
@@ -34,17 +34,18 @@ public class Shooter : MonoBehaviour
         ProjectileCopy.GetComponent<Rigidbody2D>().AddForce(transform.right * Horiz * ProjectileSpeed);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GroundLayer = LayerMask.GetMask("Ground");
         ShooterGroundCheckPosition = GameObject.Find("Shooter Ground Check").GetComponent<Transform>().position;
+    }
 
-        Horiz = 1;
+    // Start is called before the first frame update
+    void Start()
+    {
         timer = 0;
         ShootProjectile();
     }

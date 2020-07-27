@@ -40,18 +40,15 @@ public class Shooter : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         GroundLayer = LayerMask.GetMask("Ground");
-        ShooterGroundCheckPosition = GameObject.Find("Shooter Ground Check").GetComponent<Transform>().position;
+        ShooterGroundCheckPosition = transform.Find("Shooter Ground Check").GetComponent<Transform>().position;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         timer = 0;
         ShootProjectile();
     }
 
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         //Projectile copy

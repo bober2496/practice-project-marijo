@@ -6,8 +6,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "enemy" || collision.name == "MapEdge" || collision.gameObject.layer == 8)
+        if (collision.name == "MapEdge" || collision.gameObject.layer == 8)
             BlowUp();
+        else if(collision.tag == "enemy")
+        {
+            BlowUp();
+            collision.GetComponent<enemyDeath>().enabled = true;
+        }
     }
 
     void BlowUp()

@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class enemyHead : MonoBehaviour
 {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Player" || collision.collider.name == "Bullet")
+            GetComponentInParent<enemyDeath>().enabled = true;
+    }
+
+
+    /*      Eredeti code
+
     //enemy meghalas
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,4 +24,5 @@ public class enemyHead : MonoBehaviour
         }
     }
 
+    */
 }

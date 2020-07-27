@@ -2,9 +2,19 @@
 
 public class enemyDeath : MonoBehaviour
 {
+    private void Start()
+    {
+        GetComponent<Animator>().SetBool("isded", true);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+        Destroy(gameObject, 0.2f);
+    }
+
+
+    /*      Nem mukodik tokeletesen.
+
     private Collider2D _headCollider, _bodyCollider;
     [SerializeField] private Collider2D[] deadlyOnHead, deadlyOnBody;
-    
+
     void Death()
     {
         GetComponent<Animator>().SetBool("isded", true);
@@ -39,4 +49,6 @@ public class enemyDeath : MonoBehaviour
             foreach (Collider2D i in deadlyOnBody)
                 if (collision == i) Death();
     }
+
+    */
 }

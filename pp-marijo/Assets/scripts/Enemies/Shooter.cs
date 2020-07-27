@@ -34,6 +34,15 @@ public class Shooter : MonoBehaviour
         ProjectileCopy.GetComponent<Rigidbody2D>().AddForce(transform.right * Horiz * ProjectileSpeed);
     }
 
+    IEnumerator IncrementSeconds()
+    {
+        while(timer != ProjectilePeriod + 10)
+        {
+            timer++;
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -47,12 +56,12 @@ public class Shooter : MonoBehaviour
     {
         timer = 0;
         ShootProjectile();
+        StartCoroutine(IncrementSeconds());
     }
 
     void FixedUpdate()
     {
-        //Projectile copy
-        timer += Time.fixedDeltaTime;
+        //Projectile shoot   
         if(timer >= ProjectilePeriod)
         {
             timer = 0;

@@ -15,6 +15,7 @@ public class Shooter : MonoBehaviour
 
     [SerializeField] float TurnRight, TurnLeft, Jumpforce, JumpRight, JumpLeft;
 
+    [SerializeField] bool ShootingOn = true;
     [SerializeField] float ProjectilePeriod;
     [SerializeField] float ProjectileSpeed;
     [SerializeField] GameObject Projectile;
@@ -27,16 +28,19 @@ public class Shooter : MonoBehaviour
 
     void ShootProjectile()
     {
-        var ProjectileCopy = Instantiate(Projectile,
+        if (ShootingOn)
+        {
+            var ProjectileCopy = Instantiate(Projectile,
                 new Vector2(GetComponent<Transform>().position.x + 0.1f * Horiz, GetComponent<Transform>().position.y + 0.02f),
                 Quaternion.identity);
-        ProjectileCopy.transform.parent = ProjectileParent;
-        ProjectileCopy.GetComponent<Rigidbody2D>().AddForce(transform.right * Horiz * ProjectileSpeed);
+            ProjectileCopy.transform.parent = ProjectileParent;
+            ProjectileCopy.GetComponent<Rigidbody2D>().AddForce(transform.right * Horiz * ProjectileSpeed);
+        }
     }
 
     IEnumerator IncrementSeconds()
     {
-        while(timer != ProjectilePeriod + 10)
+        while(true)
         {
             timer++;
             yield return new WaitForSeconds(1.0f);
